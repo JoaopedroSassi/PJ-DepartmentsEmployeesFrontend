@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { DepartmentComponent } from '../department.component';
 
 @Component({
   selector: 'app-show-dep',
@@ -16,7 +15,7 @@ export class ShowDepComponent implements OnInit {
 
   ModalTitle:string;
   ActivateAddEditDepComp:boolean = false;
-  dep: any;
+  dep: Depart;
 
   ngOnInit(): void {
     this.refreshDep();
@@ -38,7 +37,7 @@ export class ShowDepComponent implements OnInit {
     this.refreshDep();
   }
 
-  editClick(item:any){
+  editClick(item:Depart){
     this.dep=item;
     this.ModalTitle="Edit department";
     this.ActivateAddEditDepComp=true;
@@ -49,7 +48,17 @@ export class ShowDepComponent implements OnInit {
       this.DepartmentList=data;
     });
   }
+}
 
+export class Depart{
 
+  id:number;
+  name:string;
+  initials:string
 
+  constructor(id:number, name:string, initials:string) {
+    this.id = id;
+    this.name = name;
+    this.initials = initials;
+  }
 }
