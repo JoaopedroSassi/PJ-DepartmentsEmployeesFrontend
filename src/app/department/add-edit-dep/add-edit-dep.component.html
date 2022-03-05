@@ -1,1 +1,21 @@
-<p>add-edit-dep works!</p>
+<div class="form-froup row">
+
+  <label class="col-sm-2 col-form-label">Department:</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="name"
+      placeholder="Enter department name">
+  </div>
+
+  <label class="col-sm-2 col-form-label">Initials:</label>
+  <div class="col-sm-10">
+    <input type="text" id="down" class="form-control" [(ngModel)]="initials" placeholder="Enter the initials">
+  </div>
+</div>
+
+<button (click)="addDepartment()" *ngIf="dep.id==0" class="btn btn-primary">
+  Add
+</button>
+
+<button (click)="updateDepartment()" *ngIf="dep.id!=0" class="btn btn-primary">
+  Update
+</button>
