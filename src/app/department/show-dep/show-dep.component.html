@@ -18,38 +18,33 @@
   </div>
 </div>
 
-
-<div *ngIf="refreshDep() != null else message">
-  <table class="table table-striped">
-      <thead>
-          <tr>
-              <th>Department Id</th>
-              <th>Department Name</th>
-              <th>Initials</th>
-              <th>Options</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let dataItem of DepartmentList">
-              <td>{{dataItem.id}}</td>
-              <td>{{dataItem.name}}</td>
-              <td>{{dataItem.initials}}</td>
-              <td>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal" data-backdrop="static" data-keyboard="false" (click)="editClick(dataItem)">
-                    Edit
-                  </button>
-                  <button type="button" class="btn btn-danger">
-                    Delete
-                  </button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Department Id</th>
+            <th>Name</th>
+            <th>Initials</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of DepartmentList">
+            <td>{{dataItem.id}}</td>
+            <td>{{dataItem.name}}</td>
+            <td>{{dataItem.initials}}</td>
+            <td>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal" data-backdrop="static" data-keyboard="false" (click)="editClick(dataItem)">
+                  Edit
+                </button>
+                <button type="button" class="btn btn-danger" (click)="deleteClick(dataItem.id)">
+                  Delete
+                </button>
+                <a [routerLink]="'/employees/' + dataItem.id">
                   <button type="button" class="btn btn-secondary">
                     Employees
                   </button>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-</div>
-
-<ng-template #message>
-  <p>There isn't any Deparment registred. Click in the button to add a new one!</p>
-</ng-template>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -48,6 +48,14 @@ export class ShowDepComponent implements OnInit {
       this.DepartmentList=data;
     });
   }
+
+  deleteClick(id:number){
+    if(confirm("Are you sure you want to delete it?"))
+      this.service.deleteDepartment(id).subscribe(data => {
+        alert("Department was deleted!");
+        this.refreshDep();
+      });
+  }
 }
 
 export class Depart{

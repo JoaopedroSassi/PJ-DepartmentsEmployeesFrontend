@@ -31,7 +31,7 @@ export class SharedService {
     return this.http.delete(this.APIUrl+'/departments/' + val);
   }
 
-  getEmpList(val:any):Observable<any[]>{
+  getEmpList(val:number):Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/employees/' + val);
   }
 
