@@ -19,7 +19,6 @@ export class AddEditEmpComponent implements OnInit {
   name:string;
   rg:string;
   picture:string;
-  picturePath:string;
   departmentId:number;
 
   ngOnInit(): void {
@@ -29,7 +28,6 @@ export class AddEditEmpComponent implements OnInit {
     this.name = this.emp.name;
     this.rg = this.emp.rg;
     this.picture = this.emp.picture;
-    this.picturePath = this.service.PhotoUrl + this.picture;
     this.departmentId = this.emp.departmentId;
   }
 
@@ -53,10 +51,9 @@ export class AddEditEmpComponent implements OnInit {
     var file = event.target.files[0];
     const formData:FormData = new FormData();
 
-    formData.append('uploadFile', file, file.name);
+    formData.append('uploadedFile', file, file.name);
     this.service.UploadPhoto(formData).subscribe((data:any) => {
-      this.picture = data.toString();
-      this.picturePath = this.service.PhotoUrl + this.picture;
+      this.picture = 'wwwroot/Photos/' + this.picture;
     });
   }
 

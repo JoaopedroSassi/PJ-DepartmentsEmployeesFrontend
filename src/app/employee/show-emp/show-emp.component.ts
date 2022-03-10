@@ -31,7 +31,7 @@ export class ShowEmpComponent implements OnInit {
       name:"",
       rg:"",
       departmentId:this.depId,
-      picture:"anonymous.png"
+      picture:'anonymous.png'
     }
 
     this.ModalTitle="Add employee";
