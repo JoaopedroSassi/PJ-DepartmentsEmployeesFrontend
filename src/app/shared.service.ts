@@ -45,8 +45,4 @@ export class SharedService {
   deleteEmployee(val:any){
     return this.http.delete(this.APIUrl+'/employees/' + val);
   }
-
-  UploadPhoto(val:any){
-    return this.http.post(this.APIUrl + '/upload', val);
-  }
 }
